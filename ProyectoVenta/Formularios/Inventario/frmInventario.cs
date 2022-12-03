@@ -30,37 +30,31 @@ namespace ProyectoVenta.Formularios.Inventario
         private void btnbuscar_Click(object sender, EventArgs e)
         {
             double total = 0;
-            //dgvdata.Rows.Clear();
+           // dgvdata.Rows.Clear();
 
             DateTime dt1 = Convert.ToDateTime(txtfechainicio.Value.ToString("dd/MM/yyyy"));
             DateTime dt2 = Convert.ToDateTime(txtfechafin.Value.ToString("dd/MM/yyyy"));
-            //List<ProyectoVenta.Modelo.Inventario> lista = InventarioLogica.Instancia.Resumen(dt1.ToString("yyyy-MM-dd", new CultureInfo("en-US")), dt2.ToString("yyyy-MM-dd", new CultureInfo("en-US")));
+            /* List<ProyectoVenta.Modelo.Inventario> lista = InventarioLogica.Instancia.Resumen(dt1.ToString("yyyy-MM-dd", new CultureInfo("en-US")), dt2.ToString("yyyy-MM-dd", new CultureInfo("en-US")));
 
-            //foreach (ProyectoVenta.Modelo.Inventario vr in lista)
-            //{
-            //    dgvdata.Rows.Add(new object[] {
-            //        vr.Codigo,
-            //        vr.Descripcion,
-            //        vr.Categoria,
-            //        vr.Almacen,
-            //        vr.Entradas,
-            //        vr.Salidas,
-            //        vr.Stock,
-            //        vr.TotalIngresos,
-            //        vr.TotalEgresos
-            //    });
-            //}
-            //foreach (DataGridViewRow row in dgvdata.Rows)
-            //{
-            //    total = Convert.ToDouble(row.Cells["Almacen"].Value);
-            //}
-            //totalLabel.Text += Convert.ToString(total);
-            //totalLabel.Text = "";
+             foreach (ProyectoVenta.Modelo.Inventario vr in lista)
+             {
+                 dgvdata.Rows.Add(new object[] {
+                     vr.Nombre,
+                     vr.Fecha,
+                     vr.Categoria,
+                     vr.Cantidad,
+                 });
+             }
+             foreach (DataGridViewRow row in dgvdata.Rows)
+             {
+                 total = Convert.ToDouble(row.Cells["Cantidad"].Value);
+             }
+             totalLabel.Text += Convert.ToString(total);
+             totalLabel.Text = "";*/
 
             AccesoDatos ad = new AccesoDatos();
             string sql = "Select * From Producto Where Fecha>='" + dt1.ToString() +
                 "' AND Fecha<='" + dt2.ToString() + "'";
-
             DataSet ds = new DataSet();
             ds = ad.ConsultarDatos(sql);
             dgvdata.DataSource = ds.Tables[0];
@@ -87,10 +81,6 @@ namespace ProyectoVenta.Formularios.Inventario
                         row.Cells[2].Value.ToString(),
                         row.Cells[3].Value.ToString(),
                         row.Cells[4].Value.ToString(),
-                       /* row.Cells[5].Value.ToString(),
-                        row.Cells[6].Value.ToString(),
-                        row.Cells[7].Value.ToString(),
-                        row.Cells[8].Value.ToString()*/
                     });
                 }
 

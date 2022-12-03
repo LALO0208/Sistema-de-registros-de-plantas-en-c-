@@ -171,15 +171,85 @@ namespace ProyectoVenta.Formularios.Agregar
                 row.Visible = true;
             }
         }
-
+        //cambios
         private void frmRegistrarProducto_Load(object sender, EventArgs e)
         {
+            string mensaje = string.Empty;
+            List<Producto> lista = ProductoLogica.Instancia.Listar(out mensaje);
 
+            foreach (Producto pr in lista)
+            {
+                dgvdata.Rows.Add(new object[] {
+                    pr.IdProducto,
+                    "",
+                    pr.Nombre,
+                    pr.Fecha,
+                    pr.Categoria,
+                    pr.Cantidad
+                });
+            }
+            Limpiar();
+
+            foreach (DataGridViewColumn cl in dgvdata.Columns)
+            {
+                if (cl.Visible == true && cl.Name != "btnseleccionar")
+                {
+                    cbobuscar.Items.Add(new OpcionCombo() { Valor = cl.Name, Texto = cl.HeaderText });
+                }
+            }
+            cbobuscar.DisplayMember = "Texto";
+            cbobuscar.ValueMember = "Valor";
+            cbobuscar.SelectedIndex = 0;
         }
 
         private void btnsalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            if (index >= 0)
+            {
+                if (dgvdata.Columns[e.ColumnIndex].Name == "btnseleccionar")
+                {
+                    dgvdata.Rows[_indice].DefaultCellStyle.BackColor = Color.White;
+
+                    _id = Convert.ToInt32(dgvdata.Rows[index].Cells["Id"].Value.ToString());
+                    _indice = index;
+                    txtnombre.Text = dgvdata.Rows[index].Cells["NombrePlanta"].Value.ToString();
+                    txtfecha.Text = dgvdata.Rows[index].Cells["Fecha"].Value.ToString();
+                    txtcategoria.Text = dgvdata.Rows[index].Cells["Categoria"].Value.ToString();
+                    txtcantidad.Text = dgvdata.Rows[index].Cells["Cantidad"].Value.ToString();
+
+                    txtnombre.BackColor = Color.LemonChiffon;
+                    txtfecha.BackColor = Color.LemonChiffon;
+                    txtcategoria.BackColor = Color.LemonChiffon;
+                    txtcantidad.BackColor = Color.LemonChiffon;
+                    dgvdata.Rows[index].DefaultCellStyle.BackColor = Color.LemonChiffon;
+                }
+
+            }
+        }
+
+        private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (e.ColumnIndex == 1)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.check16.Width;
+                var h = Properties.Resources.check16.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.check16, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
         }
     }
 }

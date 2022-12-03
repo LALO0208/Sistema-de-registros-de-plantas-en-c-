@@ -205,6 +205,7 @@
     <Compile Include="Modales\mdAcercade.Designer.cs">
       <DependentUpon>mdAcercade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Inventario.cs" />
     <Compile Include="Modelo\Permisos.cs" />
     <Compile Include="Modelo\Producto.cs" />
     <Compile Include="Modelo\Usuario.cs" />

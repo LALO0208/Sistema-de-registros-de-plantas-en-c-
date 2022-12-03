@@ -287,5 +287,10 @@ namespace ProyectoVenta.Formularios.Usuarios
             }
 
         }
+
+        private void lblresultado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

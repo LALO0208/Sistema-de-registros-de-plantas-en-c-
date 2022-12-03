@@ -123,5 +123,46 @@ namespace ProyectoVenta.Logica
 
             return respuesta;
         }
+        public List<Producto> Listar(out string mensaje)
+        {
+            mensaje = string.Empty;
+            List<Producto> oLista = new List<Producto>();
+
+            try
+            {
+
+                using (SQLiteConnection conexion = new SQLiteConnection(Conexion.cadena))
+                {
+                    conexion.Open();
+
+                    string query = "select IdProducto,Nombre,Fecha,Categoria,Cantidad from PRODUCTO;";
+                    SQLiteCommand cmd = new SQLiteCommand(query, conexion);
+                    cmd.CommandType = System.Data.CommandType.Text;
+
+                    using (SQLiteDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oLista.Add(new Producto()
+                            {
+                                IdProducto = int.Parse(dr["IdProducto"].ToString()),
+                                Nombre = dr["Nombre"].ToString(),
+                                Fecha = dr["Fecha"].ToString(),
+                                Categoria = dr["Categoria"].ToString(),
+                                Cantidad = dr["Cantidad"].ToString(),
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                oLista = new List<Producto>();
+                mensaje = ex.Message;
+            }
+
+
+            return oLista;
+        }
     }
 }

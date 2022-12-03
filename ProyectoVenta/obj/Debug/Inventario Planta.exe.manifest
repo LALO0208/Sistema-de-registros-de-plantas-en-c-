@@ -151,14 +151,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventario Planta.exe" size="11489296">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventario Planta.exe" size="11491856">
       <assemblyIdentity name="Inventario Planta" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AFcYZg5Um89o8mu66G9hHoMv5k6Pp9Z4yAK4UoCNdbo=</dsig:DigestValue>
+        <dsig:DigestValue>z6VWlfIWbq8pS0H1Tmk37pCG7EZd8N+/lGPylqrTKLY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
