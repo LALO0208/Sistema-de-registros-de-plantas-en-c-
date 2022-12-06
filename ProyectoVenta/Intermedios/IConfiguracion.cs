@@ -25,24 +25,26 @@ namespace ProyectoVenta.Intermedios
 
         }
 
-        private void btnusuarios_Click(object sender, EventArgs e)
+
+
+        private void btncerrar_Click_1(object sender, EventArgs e)
         {
-            FormularioVista = new frmUsuarios();
-            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
-        private void btnpermisos_Click(object sender, EventArgs e)
+        private void btnpermisos_Click_1(object sender, EventArgs e)
         {
             FormularioVista = new frmPermisos();
             this.DialogResult = DialogResult.OK;
             this.Close();
+
         }
 
-        private void btncerrar_Click(object sender, EventArgs e)
+        private void btnusuarios_Click_1(object sender, EventArgs e)
         {
+            FormularioVista = new frmUsuarios();
+            this.DialogResult = DialogResult.OK;
             this.Close();
-
         }
     }
 }

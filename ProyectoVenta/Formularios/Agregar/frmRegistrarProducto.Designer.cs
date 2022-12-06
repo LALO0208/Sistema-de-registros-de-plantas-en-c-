@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.btnsalir = new FontAwesome.Sharp.IconButton();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,7 +43,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtcategoria = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtfecha = new System.Windows.Forms.TextBox();
             this.lblresultado = new System.Windows.Forms.Label();
             this.btnguardar = new FontAwesome.Sharp.IconButton();
             this.btneliminar = new FontAwesome.Sharp.IconButton();
@@ -60,6 +59,7 @@
             this.txtbuscar = new System.Windows.Forms.TextBox();
             this.btnbuscar = new FontAwesome.Sharp.IconButton();
             this.btnborrar = new FontAwesome.Sharp.IconButton();
+            this.txtfecha = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,11 +90,11 @@
             this.btnsalir.IconColor = System.Drawing.Color.White;
             this.btnsalir.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnsalir.IconSize = 24;
-            this.btnsalir.Location = new System.Drawing.Point(925, 6);
+            this.btnsalir.Location = new System.Drawing.Point(912, 6);
             this.btnsalir.Name = "btnsalir";
-            this.btnsalir.Size = new System.Drawing.Size(69, 31);
+            this.btnsalir.Size = new System.Drawing.Size(82, 31);
             this.btnsalir.TabIndex = 131;
-            this.btnsalir.Text = "Salir";
+            this.btnsalir.Text = "Volver";
             this.btnsalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnsalir.UseVisualStyleBackColor = false;
             this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
@@ -145,9 +145,11 @@
             // txtnombre
             // 
             this.txtnombre.Location = new System.Drawing.Point(15, 115);
+            this.txtnombre.MaxLength = 30;
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(216, 20);
             this.txtnombre.TabIndex = 136;
+            this.txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
             // 
             // label3
             // 
@@ -162,9 +164,11 @@
             // txtcantidad
             // 
             this.txtcantidad.Location = new System.Drawing.Point(15, 168);
+            this.txtcantidad.MaxLength = 10;
             this.txtcantidad.Name = "txtcantidad";
             this.txtcantidad.Size = new System.Drawing.Size(216, 20);
             this.txtcantidad.TabIndex = 138;
+            this.txtcantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantidad_KeyPress);
             // 
             // label4
             // 
@@ -179,9 +183,11 @@
             // txtcategoria
             // 
             this.txtcategoria.Location = new System.Drawing.Point(14, 217);
+            this.txtcategoria.MaxLength = 20;
             this.txtcategoria.Name = "txtcategoria";
             this.txtcategoria.Size = new System.Drawing.Size(216, 20);
             this.txtcategoria.TabIndex = 140;
+            this.txtcategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcategoria_KeyPress);
             // 
             // label5
             // 
@@ -189,16 +195,9 @@
             this.label5.BackColor = System.Drawing.Color.LightCyan;
             this.label5.Location = new System.Drawing.Point(12, 251);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.Size = new System.Drawing.Size(96, 13);
             this.label5.TabIndex = 141;
-            this.label5.Text = "Fecha";
-            // 
-            // txtfecha
-            // 
-            this.txtfecha.Location = new System.Drawing.Point(15, 267);
-            this.txtfecha.Name = "txtfecha";
-            this.txtfecha.Size = new System.Drawing.Size(216, 20);
-            this.txtfecha.TabIndex = 142;
+            this.label5.Text = "Fecha De Registro";
             // 
             // lblresultado
             // 
@@ -206,7 +205,7 @@
             this.lblresultado.BackColor = System.Drawing.Color.LightCyan;
             this.lblresultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblresultado.ForeColor = System.Drawing.Color.Green;
-            this.lblresultado.Location = new System.Drawing.Point(12, 300);
+            this.lblresultado.Location = new System.Drawing.Point(12, 317);
             this.lblresultado.Name = "lblresultado";
             this.lblresultado.Size = new System.Drawing.Size(72, 13);
             this.lblresultado.TabIndex = 143;
@@ -289,15 +288,15 @@
             // 
             this.dgvdata.AllowUserToAddRows = false;
             this.dgvdata.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -310,9 +309,9 @@
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Transparent;
-            this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Transparent;
+            this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvdata.RowTemplate.Height = 24;
             this.dgvdata.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdata.Size = new System.Drawing.Size(721, 380);
@@ -348,8 +347,8 @@
             // 
             // Fecha
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Fecha.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Fecha.DefaultCellStyle = dataGridViewCellStyle8;
             this.Fecha.HeaderText = "Fecha";
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
@@ -433,12 +432,22 @@
             this.btnborrar.UseVisualStyleBackColor = false;
             this.btnborrar.Click += new System.EventHandler(this.btnborrar_Click);
             // 
+            // txtfecha
+            // 
+            this.txtfecha.CustomFormat = "dd/MM/yyyy";
+            this.txtfecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtfecha.Location = new System.Drawing.Point(15, 267);
+            this.txtfecha.Name = "txtfecha";
+            this.txtfecha.Size = new System.Drawing.Size(104, 20);
+            this.txtfecha.TabIndex = 153;
+            // 
             // frmRegistrarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1006, 509);
+            this.Controls.Add(this.txtfecha);
             this.Controls.Add(this.btnborrar);
             this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.txtbuscar);
@@ -449,7 +458,6 @@
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.lblresultado);
-            this.Controls.Add(this.txtfecha);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtcategoria);
             this.Controls.Add(this.label4);
@@ -485,7 +493,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtcategoria;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtfecha;
         private System.Windows.Forms.Label lblresultado;
         private FontAwesome.Sharp.IconButton btnguardar;
         private FontAwesome.Sharp.IconButton btneliminar;
@@ -502,5 +509,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DateTimePicker txtfecha;
     }
 }

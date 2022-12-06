@@ -23,18 +23,16 @@ namespace ProyectoVenta.Intermedios
         {
 
         }
+        private void btnvolver_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-        private void btnagregarproductos_Click(object sender, EventArgs e)
+        private void btnagregarproductos_Click_1(object sender, EventArgs e)
         {
             FormularioVista = new frmRegistrarProducto();
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void btnvolver_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
         }
     }
 }

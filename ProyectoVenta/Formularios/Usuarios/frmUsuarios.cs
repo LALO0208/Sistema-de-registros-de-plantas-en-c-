@@ -292,5 +292,15 @@ namespace ProyectoVenta.Formularios.Usuarios
         {
 
         }
+
+        private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Space) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("INGRESE SOLAMENTE LETRAS", "ALERTA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }

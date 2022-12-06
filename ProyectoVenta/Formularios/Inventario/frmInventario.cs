@@ -114,21 +114,21 @@ namespace ProyectoVenta.Formularios.Inventario
 
         private void frmInventario_Load(object sender, EventArgs e)
         {
-            foreach (DataGridViewColumn cl in dgvdata.Columns)
+            /*foreach (DataGridViewColumn cl in dgvdata.Columns)
             {
                 if (cl.Visible == true && cl.Name != "btnseleccionar")
                 {
                     cbobuscar.Items.Add(new OpcionCombo() { Valor = cl.Name, Texto = cl.HeaderText });
                 }
             }
-            cbobuscar.DisplayMember = "Texto";
+            /*cbobuscar.DisplayMember = "Texto";
             cbobuscar.ValueMember = "Valor";
-            //cbobuscar.SelectedIndex = 1;
+            cbobuscar.SelectedIndex = 1;*/
 
         }
 
         private void btnbusqueda_Click(object sender, EventArgs e)
-        {
+        {/*
             string columnaFiltro = ((OpcionCombo)cbobuscar.SelectedItem).Valor.ToString();
 
             if (dgvdata.Rows.Count > 0)
@@ -140,7 +140,7 @@ namespace ProyectoVenta.Formularios.Inventario
                     else
                         row.Visible = false;
                 }
-            }
+            }*/
         }
     }
 }

@@ -78,6 +78,7 @@
             // 
             this.txtclave.Location = new System.Drawing.Point(117, 333);
             this.txtclave.Name = "txtclave";
+            this.txtclave.PasswordChar = '*';
             this.txtclave.Size = new System.Drawing.Size(185, 20);
             this.txtclave.TabIndex = 4;
             // 

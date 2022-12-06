@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventario));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,11 +40,6 @@
             this.btnbuscar = new FontAwesome.Sharp.IconButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnexportar = new FontAwesome.Sharp.IconButton();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cbobuscar = new System.Windows.Forms.ComboBox();
-            this.txtbuscar = new System.Windows.Forms.TextBox();
-            this.btnbusqueda = new FontAwesome.Sharp.IconButton();
-            this.btnlimpiar = new FontAwesome.Sharp.IconButton();
             this.dgvdata = new System.Windows.Forms.DataGridView();
             this.btnsalir = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -166,100 +161,27 @@
             this.btnexportar.UseVisualStyleBackColor = false;
             this.btnexportar.Click += new System.EventHandler(this.btnexportar_Click);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(529, 95);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(69, 15);
-            this.label12.TabIndex = 168;
-            this.label12.Text = "Buscar por:";
-            // 
-            // cbobuscar
-            // 
-            this.cbobuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbobuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbobuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbobuscar.FormattingEnabled = true;
-            this.cbobuscar.Items.AddRange(new object[] {
-            "Nombre",
-            "Fecha",
-            "Categoria",
-            "Cantidad"});
-            this.cbobuscar.Location = new System.Drawing.Point(604, 88);
-            this.cbobuscar.Name = "cbobuscar";
-            this.cbobuscar.Size = new System.Drawing.Size(145, 21);
-            this.cbobuscar.TabIndex = 169;
-            // 
-            // txtbuscar
-            // 
-            this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbuscar.Location = new System.Drawing.Point(755, 89);
-            this.txtbuscar.Name = "txtbuscar";
-            this.txtbuscar.Size = new System.Drawing.Size(135, 21);
-            this.txtbuscar.TabIndex = 170;
-            // 
-            // btnbusqueda
-            // 
-            this.btnbusqueda.BackColor = System.Drawing.SystemColors.Control;
-            this.btnbusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnbusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnbusqueda.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnbusqueda.IconColor = System.Drawing.Color.Black;
-            this.btnbusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnbusqueda.IconSize = 17;
-            this.btnbusqueda.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnbusqueda.Location = new System.Drawing.Point(896, 90);
-            this.btnbusqueda.Name = "btnbusqueda";
-            this.btnbusqueda.Size = new System.Drawing.Size(37, 21);
-            this.btnbusqueda.TabIndex = 171;
-            this.btnbusqueda.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnbusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnbusqueda.UseVisualStyleBackColor = false;
-            this.btnbusqueda.Click += new System.EventHandler(this.btnbusqueda_Click);
-            // 
-            // btnlimpiar
-            // 
-            this.btnlimpiar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnlimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnlimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnlimpiar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btnlimpiar.IconColor = System.Drawing.Color.Black;
-            this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnlimpiar.IconSize = 17;
-            this.btnlimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnlimpiar.Location = new System.Drawing.Point(939, 90);
-            this.btnlimpiar.Name = "btnlimpiar";
-            this.btnlimpiar.Size = new System.Drawing.Size(37, 21);
-            this.btnlimpiar.TabIndex = 172;
-            this.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnlimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnlimpiar.UseVisualStyleBackColor = false;
-            // 
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
             this.dgvdata.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Location = new System.Drawing.Point(12, 124);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvdata.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
             this.dgvdata.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowTemplate.Height = 24;
@@ -280,11 +202,11 @@
             this.btnsalir.IconColor = System.Drawing.Color.White;
             this.btnsalir.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnsalir.IconSize = 24;
-            this.btnsalir.Location = new System.Drawing.Point(896, 4);
+            this.btnsalir.Location = new System.Drawing.Point(888, 4);
             this.btnsalir.Name = "btnsalir";
-            this.btnsalir.Size = new System.Drawing.Size(69, 31);
+            this.btnsalir.Size = new System.Drawing.Size(77, 31);
             this.btnsalir.TabIndex = 174;
-            this.btnsalir.Text = "Salir";
+            this.btnsalir.Text = "Volver";
             this.btnsalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnsalir.UseVisualStyleBackColor = false;
             this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
@@ -297,11 +219,6 @@
             this.ClientSize = new System.Drawing.Size(981, 544);
             this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.dgvdata);
-            this.Controls.Add(this.btnlimpiar);
-            this.Controls.Add(this.btnbusqueda);
-            this.Controls.Add(this.txtbuscar);
-            this.Controls.Add(this.cbobuscar);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.btnexportar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnbuscar);
@@ -332,11 +249,6 @@
         private FontAwesome.Sharp.IconButton btnbuscar;
         private System.Windows.Forms.GroupBox groupBox2;
         private FontAwesome.Sharp.IconButton btnexportar;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cbobuscar;
-        private System.Windows.Forms.TextBox txtbuscar;
-        private FontAwesome.Sharp.IconButton btnbusqueda;
-        private FontAwesome.Sharp.IconButton btnlimpiar;
         private System.Windows.Forms.DataGridView dgvdata;
         private FontAwesome.Sharp.IconButton btnsalir;
     }
