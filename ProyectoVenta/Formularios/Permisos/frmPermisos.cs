@@ -94,13 +94,17 @@ namespace ProyectoVenta.Formularios.Permisos
 
         private void frmPermisos_Load(object sender, EventArgs e)
         {
+            //administrador
             Modelo.Permisos padmin = PermisosLogica.Instancia.Obtener(1);
+            //empleado
             Modelo.Permisos pemple = PermisosLogica.Instancia.Obtener(2);
 
+            //administrador
             a_productos.Checked = padmin.Productos == 1 ? true : false;
             a_inventario.Checked = padmin.Inventario == 1 ? true : false;
             a_configuracion.Checked = padmin.Configuracion == 1 ? true : false;
 
+            //empleado
             e_productos.Checked = pemple.Productos == 1 ? true : false;
             e_inventario.Checked = pemple.Inventario == 1 ? true : false;
             e_configuracion.Checked = pemple.Configuracion == 1 ? true : false;

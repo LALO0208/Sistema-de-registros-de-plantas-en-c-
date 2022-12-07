@@ -148,6 +148,7 @@ namespace ProyectoVenta.Logica
                                 IdProducto = int.Parse(dr["IdProducto"].ToString()),
                                 Nombre = dr["Nombre"].ToString(),
                                 Fecha = dr["Fecha"].ToString(),
+                                //Fecha = Convert.ToDateTime(dr["Fecha"].ToString()).ToString("dd/MM/yyyy"),
                                 Categoria = dr["Categoria"].ToString(),
                                 Cantidad = dr["Cantidad"].ToString(),
                             });

@@ -50,17 +50,15 @@ namespace ProyectoVenta.Formularios.Agregar
             {
                 IdProducto = _id,
                 Nombre = txtnombre.Text,
-                Fecha = txtfecha.Text,
+                Fecha = txtfecha.Value.ToString("dd/MM/yyyy"),
                 Categoria = txtcategoria.Text,
                 Cantidad = txtcantidad.Text
             };
 
-
-
             if (_id == 0)
             {
-
                 int idgenerado = ProductoLogica.Instancia.Guardar(obj, out mensaje);
+
                 if (idgenerado > 0)
                 {
                     Limpiar();
@@ -76,8 +74,8 @@ namespace ProyectoVenta.Formularios.Agregar
             }
             else
             {
-
                 int afectados = ProductoLogica.Instancia.Editar(obj, out mensaje);
+
                 if (afectados > 0)
                 {
                     dgvdata.Rows[_indice].Cells["NombrePlanta"].Value = obj.Nombre;
@@ -200,6 +198,10 @@ namespace ProyectoVenta.Formularios.Agregar
             cbobuscar.DisplayMember = "Texto";
             cbobuscar.ValueMember = "Valor";
             cbobuscar.SelectedIndex = 0;
+
+            //INSERTA LA FECHA DE ACTUAL.
+            DateTime fechaHoy = DateTime.Now;
+            txtfecha.Value = fechaHoy;
         }
 
         private void btnsalir_Click(object sender, EventArgs e)
@@ -254,7 +256,7 @@ namespace ProyectoVenta.Formularios.Agregar
 
         private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar !=(char)Keys.Space) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Space) && (e.KeyChar != (char)Keys.Back))
             {
                 MessageBox.Show("INGRESE SOLAMENTE LETRAS", "ALERTA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -280,6 +282,11 @@ namespace ProyectoVenta.Formularios.Agregar
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void txtfecha_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

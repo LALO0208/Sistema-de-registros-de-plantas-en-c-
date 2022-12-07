@@ -34,6 +34,7 @@ namespace ProyectoVenta.Formularios.Inventario
 
             DateTime dt1 = Convert.ToDateTime(txtfechainicio.Value.ToString("dd/MM/yyyy"));
             DateTime dt2 = Convert.ToDateTime(txtfechafin.Value.ToString("dd/MM/yyyy"));
+
             /* List<ProyectoVenta.Modelo.Inventario> lista = InventarioLogica.Instancia.Resumen(dt1.ToString("yyyy-MM-dd", new CultureInfo("en-US")), dt2.ToString("yyyy-MM-dd", new CultureInfo("en-US")));
 
              foreach (ProyectoVenta.Modelo.Inventario vr in lista)
@@ -53,11 +54,30 @@ namespace ProyectoVenta.Formularios.Inventario
              totalLabel.Text = "";*/
 
             AccesoDatos ad = new AccesoDatos();
-            string sql = "Select * From Producto Where Fecha>='" + dt1.ToString() +
-                "' AND Fecha<='" + dt2.ToString() + "'";
+            string sql = "Select Nombre,Fecha,Categoria,Cantidad From Producto Where Fecha >='" + dt1.ToString("dd/MM/yyyy") +
+                "' AND Fecha <='" + dt2.ToString("dd/MM/yyyy") + "'";
             DataSet ds = new DataSet();
             ds = ad.ConsultarDatos(sql);
+
+            var dato = ds.Tables[0];
+
             dgvdata.DataSource = ds.Tables[0];
+
+
+            cbobuscarInventario.Items.Clear();
+
+            //OPCIONES COMBO.
+            foreach (DataGridViewColumn cl in dgvdata.Columns)
+            {
+                if (cl.Visible == true && cl.Name != "IdProducto")
+                {
+                    cbobuscarInventario.Items.Add(new OpcionCombo() { Valor = cl.Name, Texto = cl.HeaderText });
+                }
+            }
+
+            cbobuscarInventario.DisplayMember = "Texto";
+            cbobuscarInventario.ValueMember = "Valor";
+            cbobuscarInventario.SelectedIndex = 0;
 
         }
 
@@ -80,7 +100,7 @@ namespace ProyectoVenta.Formularios.Inventario
                         row.Cells[1].Value.ToString(),
                         row.Cells[2].Value.ToString(),
                         row.Cells[3].Value.ToString(),
-                        row.Cells[4].Value.ToString(),
+                        //row.Cells[4].Value.ToString(),
                     });
                 }
 
@@ -141,6 +161,37 @@ namespace ProyectoVenta.Formularios.Inventario
                         row.Visible = false;
                 }
             }*/
+        }
+
+        private void cbobuscarInventario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)cbobuscarInventario.SelectedItem).Valor.ToString();
+
+            if (dgvdata.Rows.Count > 0)
+            {
+                
+                foreach (DataGridViewRow row in dgvdata.Rows)
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbuscarInventario.Text.ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        if(row.Visible == true)
+                        {
+                            CurrencyManager cm = (CurrencyManager)BindingContext[dgvdata.DataSource];
+                            cm.SuspendBinding();
+                            row.Visible = false;
+                        }                        
+                    }
+                }
+            }
         }
     }
 }

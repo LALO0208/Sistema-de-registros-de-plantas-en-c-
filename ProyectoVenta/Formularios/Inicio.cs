@@ -29,6 +29,22 @@ namespace ProyectoVenta.Formularios
         {
             lblstatus1.Text = string.Format("{0}", NombreUsuario);
             lblstatus2.Text = string.Format("{0}", FechaHora);
+
+            if (oPermisos.Productos == 0)
+            {
+                btnproductos.Enabled = false;
+                btnproductos.Cursor = Cursors.No;
+            }
+            if (oPermisos.Inventario == 0)
+            {
+                btnInventario.Enabled = false;
+                btnInventario.Cursor = Cursors.No;
+            }
+            if (oPermisos.Configuracion == 0)
+            {
+                btnConfiguracion.Enabled = false;
+                btnConfiguracion.Cursor = Cursors.No;
+            }
         }
         private void Frm_Closing(object sender, FormClosingEventArgs e)
         {
